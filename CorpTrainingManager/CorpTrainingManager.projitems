@@ -9,6 +9,12 @@
     <Import_RootNamespace>CorpTrainingManager</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\UserResults.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResultsUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
   </ItemGroup>
 </Project>
