@@ -90,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,11 +99,15 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewControllers\LearnersViewController.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\EasyLayout.cs" />
+    <Compile Include="Utilities\LoadingOverlay.cs" />
+    <Compile Include="Utilities\UIHelper.cs" />
   </ItemGroup>
   <Import Project="..\CorpTrainingManager\CorpTrainingManager.projitems" Label="Shared" Condition="Exists('..\CorpTrainingManager\CorpTrainingManager.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="ViewControllers\" />
+  </ItemGroup>
 </Project>

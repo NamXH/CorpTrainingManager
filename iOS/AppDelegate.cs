@@ -21,6 +21,17 @@ namespace CorpTrainingManager.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
+            // create a new window instance based on the screen size
+            Window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+            var learnersViewController = new LearnersViewController();
+            var navigationController = new UINavigationController(learnersViewController);
+
+            Window.RootViewController = navigationController;
+
+            // make the window visible
+            Window.MakeKeyAndVisible();
+
             return true;
         }
 
