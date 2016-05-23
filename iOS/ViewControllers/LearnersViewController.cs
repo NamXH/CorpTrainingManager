@@ -79,10 +79,10 @@ namespace CorpTrainingManager.iOS
                 var loadingOverlay = new LoadingOverlay(Container.View.Bounds);
                 Container.View.Add(loadingOverlay);
 
-                List<UserResults> resultsList = null;
+                List<UserResults> testResults = null;
                 try
                 {
-                    resultsList = (await ResultsUtil.GetUserResultsAsync(Items[indexPath.Row].UserId)).ToList();
+                    testResults = (await ResultsUtil.GetUserResultsAsync(Items[indexPath.Row].UserId)).ToList();
                 }
                 catch (Exception e)
                 {
@@ -92,9 +92,9 @@ namespace CorpTrainingManager.iOS
                 }
                 loadingOverlay.HideThenRemove();
 
-                if ((resultsList != null) && (resultsList.Count > 0))
+                if ((testResults != null) && (testResults.Count > 0))
                 {
-//                    Container.NavigationController.PushViewController(new LessonScreenViewController(Items[indexPath.Row].Id, resultsList, 0, new List<ScreenAnswer>()), true);
+                    Container.NavigationController.PushViewController(new TestResultsViewController(testResults), true);
                 }
                 else
                 {

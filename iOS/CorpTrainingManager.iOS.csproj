@@ -104,6 +104,7 @@
     <Compile Include="Utilities\EasyLayout.cs" />
     <Compile Include="Utilities\LoadingOverlay.cs" />
     <Compile Include="Utilities\UIHelper.cs" />
+    <Compile Include="ViewControllers\TestResultsViewController.cs" />
   </ItemGroup>
   <Import Project="..\CorpTrainingManager\CorpTrainingManager.projitems" Label="Shared" Condition="Exists('..\CorpTrainingManager\CorpTrainingManager.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
