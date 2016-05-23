@@ -97,6 +97,14 @@ namespace CorpTrainingManager.iOS
 
                 cell.TextLabel.Text = Items[indexPath.Row].LessonName;
                 cell.DetailTextLabel.Text = String.Format("{0}/{1}", Items[indexPath.Row].UserScore, Items[indexPath.Row].TotalScore);
+                if (Items[indexPath.Row].UserScore == Items[indexPath.Row].TotalScore)
+                {
+                    cell.DetailTextLabel.TextColor = UIColor.Green;
+                }
+                else
+                {
+                    cell.DetailTextLabel.TextColor = UIColor.Red;
+                }
 
                 return cell;
             }

@@ -87,9 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon_120x120.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\icon_180x180.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\iphone_portrait_6p.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\iphone_portrait_6.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\iphone_portrait_4.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\iphone_portrait_5.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
