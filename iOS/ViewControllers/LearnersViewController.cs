@@ -2,12 +2,15 @@
 using UIKit;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CorpTrainingManager.iOS
 {
     public class LearnersViewController : UIViewController
     {
         public IList<User> Learners { get; set; }
+
+        public UITableView LearnersTable { get; set; }
 
         public LearnersViewController()
         {
@@ -20,36 +23,58 @@ namespace CorpTrainingManager.iOS
 
             View.BackgroundColor = UIColor.White;
 
-            var learnersTable = new UITableView();
-            View.AddSubview(learnersTable);
+            LearnersTable = new UITableView();
+            View.AddSubview(LearnersTable);
 
             View.ConstrainLayout(() =>
-                learnersTable.Frame.Top == View.Frame.Top &&
-                learnersTable.Frame.Left == View.Frame.Left &&
-                learnersTable.Frame.Right == View.Frame.Right &&
-                learnersTable.Frame.Bottom == View.Frame.Bottom
+                LearnersTable.Frame.Top == View.Frame.Top &&
+                LearnersTable.Frame.Left == View.Frame.Left &&
+                LearnersTable.Frame.Right == View.Frame.Right &&
+                LearnersTable.Frame.Bottom == View.Frame.Bottom
             );
 
-            // Loading indicator
-            var loadingOverlay = new LoadingOverlay(View.Bounds);
-            View.AddSubview(loadingOverlay);
+            await RefreshTableDataAsync();
+
+            NavigationItem.SetRightBarButtonItem(
+                new UIBarButtonItem(UIBarButtonSystemItem.Refresh, async (sender, args) =>
+                    {
+                        await RefreshTableDataAsync();
+                    }), 
+                true);
+        }
+
+        private async Task<IList<User>> GetLearnersAsync()
+        {
+            IList<User> learners = null;
 
             try
             {
-                Learners = await ResultsUtil.GetUsersListAsync();
+                learners = await ResultsUtil.GetUsersListAsync();
             }
             catch (Exception e)
             {
                 var alert = UIAlertController.Create("Something goes wrong", String.Format("Please check your Internet connection and try again.{0} Details: {1}", Environment.NewLine, e.Message), UIAlertControllerStyle.Alert);
                 alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                PresentViewController(alert, true, null); 
+                PresentViewController(alert, true, null);
             }
 
-            if (Learners != null)
+            return learners;
+        }
+
+        private async Task RefreshTableDataAsync()
+        {
+            // Loading indicator
+            var loadingOverlay = new LoadingOverlay(View.Bounds);
+            View.AddSubview(loadingOverlay);
+
+            Learners = await GetLearnersAsync();
+
+            if (Learners == null)
             {
-                learnersTable.Source = new LearnersTableSource(this, Learners);
-                learnersTable.ReloadData();
+                Learners = new List<User>();
             }
+            LearnersTable.Source = new LearnersTableSource(this, Learners);
+            LearnersTable.ReloadData();
 
             loadingOverlay.HideThenRemove();
         }
