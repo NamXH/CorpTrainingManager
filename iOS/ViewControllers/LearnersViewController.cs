@@ -119,7 +119,7 @@ namespace CorpTrainingManager.iOS
 
                 if ((testResults != null) && (testResults.Count > 0))
                 {
-                    Container.NavigationController.PushViewController(new TestResultsViewController(testResults), true);
+                    Container.NavigationController.PushViewController(new TestResultsViewController(testResults, Items[indexPath.Row].DisplayName), true);
                 }
                 else
                 {

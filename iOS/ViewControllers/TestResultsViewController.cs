@@ -9,9 +9,9 @@ namespace CorpTrainingManager.iOS
     {
         public IList<UserResults> TestResults { get; set; }
 
-        public TestResultsViewController(IList<UserResults> results)
+        public TestResultsViewController(IList<UserResults> results, string title)
         {
-            Title = "Results";
+            Title = title;
             TestResults = results;
         }
 
