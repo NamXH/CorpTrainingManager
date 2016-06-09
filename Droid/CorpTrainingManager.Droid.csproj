@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -47,11 +48,25 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NineOldAndroids">
+      <HintPath>..\packages\NineOldAndroids.2.4.0\lib\MonoAndroid23\NineOldAndroids.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="C#\Models\SortModel.cs" />
+    <Compile Include="C#\Widgets\SideBar.cs" />
+    <Compile Include="C#\Widgets\ClearEditText.cs" />
+    <Compile Include="C#\Adapters\SortAdapter.cs" />
+    <Compile Include="C#\Activities\MainActivity.cs" />
+    <Compile Include="C#\Activities\BaseActivity.cs" />
+    <Compile Include="C#\Utils\DialogFactory.cs" />
+    <Compile Include="C#\Utils\Constants.cs" />
+    <Compile Include="C#\Utils\Utils.cs" />
+    <Compile Include="C#\Activities\UserActivity.cs" />
+    <Compile Include="C#\Activities\ResultActivity.cs" />
+    <Compile Include="C#\Utils\ObjectTypeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -60,14 +75,44 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable\sidebar_background.xml" />
+    <AndroidResource Include="Resources\layout\item_users.axml" />
+    <AndroidResource Include="Resources\layout\activity_main.axml" />
+    <AndroidResource Include="Resources\drawable\login_button_bg_selector.xml" />
+    <AndroidResource Include="Resources\layout\acivity_user.axml" />
+    <AndroidResource Include="Resources\drawable\customer_progress.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\title_red_bg.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\login_button_press.9.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\login_button_nor.9.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\landingscape.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\mainicon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\emotionstore_progresscancelbtn.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\search_bar_icon_normal.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\show_head_toast_bg.9.PNG" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon_exit.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\login_input.9.png" />
+    <AndroidResource Include="Resources\layout\activity_result.axml" />
+    <AndroidResource Include="Resources\drawable\navigation_left.png" />
+    <AndroidResource Include="Resources\drawable\backword.png" />
+    <AndroidResource Include="Resources\drawable\customer_progress_blue.xml" />
+    <AndroidResource Include="Resources\layout\item_userresults.axml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\video_default_icon.png" />
   </ItemGroup>
   <Import Project="..\CorpTrainingManager\CorpTrainingManager.projitems" Label="Shared" Condition="Exists('..\CorpTrainingManager\CorpTrainingManager.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="C#\" />
+    <Folder Include="C#\Models\" />
+    <Folder Include="C#\Widgets\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="C#\Adapters\" />
+    <Folder Include="C#\Activities\" />
+    <Folder Include="C#\Utils\" />
+    <Folder Include="Resources\mipmap-hdpi\" />
+  </ItemGroup>
 </Project>
